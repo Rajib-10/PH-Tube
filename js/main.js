@@ -10,7 +10,7 @@ const handleCategory = async () => {
     const div = document.createElement("div");
     div.innerHTML = `
         
-        <button onclick="handleLoadCategories('${categories.category_id}')" class="btn mr-4 capitalize">${categories.category}</button>
+        <button onclick="handleLoadCategories('${categories.category_id}')" class="btn mb-2 md:mr-4 capitalize">${categories.category}</button>
          `;
     cardBox.appendChild(div);
   });
@@ -42,10 +42,10 @@ const handleLoadCategories = async (id,isSort) => {
   categories.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
-        <div class="card  bg-base-100 shadow-xl">
-        <figure class="h-[130px]">
+        <div class="card  bg-base-100 shadow-xl h-[300px] lg:min-h-[400] xl:h-[300px]">
+        <figure class="h-[124px] lg:h-[116px] xl:h-[124px]">
             <img src="${category?.thumbnail}" alt="">
-            <p class="bg-gray-700 text-white absolute p-1 rounded-md text-[10px] right-[1%] top-[39%]" >${category?.others?.posted_date ?
+            <p class="bg-gray-700 text-white absolute p-1 rounded-md text-[10px] right-[1%] top-[33%] lg:top-[30%] xl:top-[33%]" >${category?.others?.posted_date ?
                 `${Math.floor(category.others.posted_date / 3600)} hr ${Math.floor((category.others.posted_date % 3600) / 60)} min ago` :
                 ""}</p>
             
@@ -61,12 +61,12 @@ const handleLoadCategories = async (id,isSort) => {
                     </div>
                 </div>
                 <div>
-                    <h2 class="card-title">${category?.title.slice(0, 14)}</h2>
+                    <h2 class="card-title">${category?.title}</h2>
                     <div class="flex gap-3">
-                        <h2>${category?.authors[0]?.profile_name} <span>${category?.authors[0]?.verified ? `<i class="fa-solid fa-circle-check ml-2"></i>` : ""}</span>
+                        <h2 class="lg:text-sm xl:text-lg">${category?.authors[0]?.profile_name} <span>${category?.authors[0]?.verified ? `<i class="fa-solid fa-circle-check ml-2"></i>` : ""}</span>
                         </h2> 
                     </div>
-                    <h2>${category?.others?.views} <span>views</span> </h2>
+                    <h2 class="lg:text-sm xl:text-lg">${category?.others?.views} <span>views</span> </h2>
                 </div>
                 
             </div>  

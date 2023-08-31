@@ -12,29 +12,29 @@
     <script src="https://kit.fontawesome.com/7f40997cb0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="mx-14">
-        <nav class="flex justify-between my-10">
-                <img class="cursor-pointer" src="./image/Logo.png" alt="ph tube">
-                <button onclick="sortHandler()" class="btn capitalize" >Sort by view</button>
+    <header class="mx-2 md:mx-14">
+        <nav class="flex flex-col md:flex-row justify-between my-10 ">
+                <img class="cursor-pointer mb-3 md:mb-0" src="./image/Logo.png" alt="ph tube">
+                <button onclick="sortHandler()" class="btn capitalize mb-3 md:mb-0" >Sort by view</button>
                 <button onclick="blogHandler()" class="btn capitalize bg-[#FF1F3D] btn-error text-white">Blog</button>
             
         </nav>
         <hr>
         <hr>
     </header>
-    <main class="mx-14">
+    <main class="md:mx-14 lg:mx-2 xl:mx-14 mb-4 md:mb-10">
         <div class="Button-container w-full">
-            <div class="tabs p-5 mx-auto text-center flex justify-center" id="button-box">
+            <div class=" p-5 md:mx-auto text-center flex-col md:flex-row flex justify-center" id="button-box">
             </div>
           </div>
 
           <!-- card container  -->
 
-    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-10">
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-10 lg:gap-2 xl:gap-12 ">
     </div>
 
     <!-- empty category  -->
-    <div id="empty-item" class="hidden md:text-center lg:mt-10 text-3xl font-semibold">
+    <div id="empty-item" class="hidden text-center lg:mt-10 text-xl md:text-3xl font-semibold">
         <img class="mx-auto" src="./image/Icon.png" alt="">
         <h2>Oops!!Sorry, There is no content here</h2>
     </div>
