@@ -38,14 +38,14 @@ const handleLoadCategories = async (id,isSort) => {
         categories.sort((a, b) => parseFloat(b.others.views)*1000 - parseFloat(a.others.views)*1000);
         
     }
-    // categories.sort((a, b) => parseFloat(b.others.views)*1000 - parseFloat(a.others.views)*1000);
+    
 
   categories.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
         <div class="card  bg-base-100 shadow-xl h-[300px] lg:min-h-[400] xl:h-[300px]">
-        <figure class="h-[124px] lg:h-[116px] xl:h-[124px]">
-            <img src="${category?.thumbnail}" alt="">
+        <figure class="h-[124px] lg:h-[116px] xl:h-[124px] rounded-br-[16px] rounded-bl-[16px]">
+            <img class="rounded-br-lg rounded-bl-lg" src="${category?.thumbnail}" alt="">
             <p class="bg-gray-700 text-white absolute p-1 rounded-md text-[10px] right-[1%] top-[33%] lg:top-[30%] xl:top-[33%]" >${category?.others?.posted_date ?
                 `${Math.floor(category.others.posted_date / 3600)} hr ${Math.floor((category.others.posted_date % 3600) / 60)} min ago` :
                 ""}</p>
