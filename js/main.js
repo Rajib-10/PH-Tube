@@ -15,8 +15,9 @@ const handleCategory = async () => {
     cardBox.appendChild(div);
   });
 };
-
+let globalId;
 const handleLoadCategories = async (id,isSort) => {
+  globalId = id;
   const response = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${id}`
   );
@@ -33,10 +34,10 @@ const handleLoadCategories = async (id,isSort) => {
         emptyItem.classList.add("hidden");
     }
     
-    // if(isSort){
-    //     categories.sort((a, b) => parseFloat(b.others.views)*1000 - parseFloat(a.others.views)*1000);
-    //     console.log("button is clicked");
-    // }
+    if(isSort){
+        categories.sort((a, b) => parseFloat(b.others.views)*1000 - parseFloat(a.others.views)*1000);
+        
+    }
     // categories.sort((a, b) => parseFloat(b.others.views)*1000 - parseFloat(a.others.views)*1000);
 
   categories.forEach((category) => {
@@ -63,10 +64,10 @@ const handleLoadCategories = async (id,isSort) => {
                 <div>
                     <h2 class="card-title">${category?.title}</h2>
                     <div class="flex gap-3">
-                        <h2 class="lg:text-sm xl:text-lg">${category?.authors[0]?.profile_name} <span>${category?.authors[0]?.verified ? `<i class="fa-solid fa-circle-check ml-2"></i>` : ""}</span>
+                        <h2 class="lg:text-[15px] xl:text-lg">${category?.authors[0]?.profile_name} <span>${category?.authors[0]?.verified ? `<i class="fa-solid fa-circle-check "></i>` : ""}</span>
                         </h2> 
                     </div>
-                    <h2 class="lg:text-sm xl:text-lg">${category?.others?.views} <span>views</span> </h2>
+                    <h2 class="lg:text-[15px] xl:text-lg">${category?.others?.views} <span>views</span> </h2>
                 </div>
                 
             </div>  
@@ -90,8 +91,9 @@ function blogHandler(){
 // sort button handler 
 
 function sortHandler(){
-
-    handleLoadCategories(true)
+  handleLoadCategories(globalId,true);
+   
 }
+
 
 handleLoadCategories("1000");
