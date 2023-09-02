@@ -10,7 +10,7 @@ const handleCategory = async () => {
     const div = document.createElement("div");
     div.innerHTML = `
         
-        <button onclick="handleLoadCategories('${categories.category_id}')" class="btn mb-2 md:mr-4 capitalize">${categories.category}</button>
+        <button onclick="handleLoadCategories('${categories.category_id}')" class="btn mb-2 md:mr-4 capitalize focus:bg-[#FF1F3D] focus:text-white  ">${categories.category}</button>
          `;
     cardBox.appendChild(div);
   });
@@ -46,7 +46,7 @@ const handleLoadCategories = async (id,isSort) => {
         <div class="card  bg-base-100 shadow-xl h-[300px] lg:min-h-[400] xl:h-[300px]">
         <figure class="h-[124px] lg:h-[116px] xl:h-[124px] rounded-br-[16px] rounded-bl-[16px]">
             <img class="rounded-br-lg rounded-bl-lg" src="${category?.thumbnail}" alt="">
-            <p class="bg-gray-700 text-white absolute p-1 rounded-md text-[10px] right-[1%] top-[33%] lg:top-[30%] xl:top-[33%]" >${category?.others?.posted_date ?
+            <p class="bg-gray-700 text-white absolute p-1 rounded-md text-[10px] right-[2%] top-[32%] lg:top-[29%] xl:top-[32%]" >${category?.others?.posted_date ?
                 `${Math.floor(category.others.posted_date / 3600)} hr ${Math.floor((category.others.posted_date % 3600) / 60)} min ago` :
                 ""}</p>
             
@@ -85,6 +85,7 @@ handleCategory();
 //  blog button handle here 
 function blogHandler(){
     window.open("blog.html", "_blank");
+    // location.href("blog.html");
 }
 
 
